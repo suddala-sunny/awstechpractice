@@ -1,11 +1,30 @@
+# data "aws_ami" "dev_env_ami_ubuntu" {
+#   most_recent = true
+#   owners      = ["099720109477"]
+#   filter {
+#     name   = "name"
+#     values = ["${var.aws_ami_image_name}"]
+#   }
+#   filter {
+#     name   = "root-device-type"
+#     values = ["ebs"]
+#   }
+#   filter {
+#     name   = "virtualization-type"
+#     values = ["hvm"]
+#   }
+# }
+
 resource "aws_instance" "dev_env_ec2instance" {
-  tags          = { name = "dev_env_ec2instance" }
-  ami           = var.aws_image_id
+  tags = { name = "dev_env_ec2instance" }
+  ami  = var.aws_image_id
+  #ami           = data.aws_ami.dev_env_ami_ubuntu.id
   instance_type = var.aws_instance_type
   key_name      = aws_key_pair.awskeypair.key_name
   subnet_id     = aws_subnet.dev_env_subnet.id
   #vpc_security_group_ids = [ "${aws_aws_security_group.dev_env_sg.id}" ]
-  security_groups             = ["${aws_security_group.dev_env_sg.id}"]
+  security_groups = ["${aws_default_security_group.dev_env_sg.id}"]
+  #security_groups             = ["${aws_security_group.dev_env_sg.id}"]
   associate_public_ip_address = true
   user_data                   = file("userdata.sh")
   connection {

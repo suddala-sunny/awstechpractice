@@ -29,3 +29,7 @@ variable "aws_secret_key" {
 variable "aws_region" {
   type = string
 }
+
+# variable "aws_ami_image_name" {
+#   type = string
+# }

@@ -1,7 +1,7 @@
-resource "aws_security_group" "dev_env_sg" {
-  #resource "aws_default_security_group" "dev_env_sg" {
-  vpc_id      = aws_vpc.dev_env_vpc.id
-  description = "aws sg ssh allow"
+#resource "aws_security_group" "dev_env_sg" {
+resource "aws_default_security_group" "dev_env_sg" {
+  vpc_id = aws_vpc.dev_env_vpc.id
+  #description = "aws sg ssh allow"
   # ingress {
   #   description = "port 22 for ssh allow"
   #   from_port   = 22
