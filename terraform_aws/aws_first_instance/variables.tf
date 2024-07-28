@@ -19,15 +19,18 @@ variable "aws_availability_zone" {
 }
 
 variable "aws_access_key" {
-  type = string
+  type      = string
+  sensitive = true
 }
 
 variable "aws_secret_key" {
-  type = string
+  type      = string
+  sensitive = true
 }
 
 variable "aws_region" {
   type = string
+  #default = "ap-south-1"
 }
 
 # variable "aws_ami_image_name" {
