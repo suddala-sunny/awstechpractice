@@ -1,5 +1,5 @@
-  aws_access_key = "AKIA5FTZE4XG4NNOTPWD"
-  aws_secret_key = "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"
+  aws_access_key = ""
+  aws_secret_key = ""
 aws_region            = "ap-south-1"
 aws_availability_zone = "ap-south-1a"
 aws_image_id          = "ami-0ad21ae1d0696ad58"
